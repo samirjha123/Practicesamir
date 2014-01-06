@@ -2,6 +2,7 @@ package 'apache2' do
   case node[:platform]
   when 'centos','redhat','fedora','amazon'
     package_name 'httpd'
+    Chef::Log.debug("samirjj1")
   when 'debian','ubuntu'
     package_name 'apache2'
   end
