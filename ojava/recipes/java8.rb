@@ -1,4 +1,4 @@
-include_recipe 'oracle-java::ppa'
+include_recipe 'ojava::ppa'
 
 execute "accept-oracle-license" do
   command "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections"
