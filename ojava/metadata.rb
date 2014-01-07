@@ -6,6 +6,6 @@ description      "Installs/Configures Oracle Java 6/7/8"
 # version          "0.0.1"
 
 
-# %w{ apt }.each do |cb|
-  # depends cb
-# end
+ %w{ apt }.each do |cb|
+  depends cb
+end
