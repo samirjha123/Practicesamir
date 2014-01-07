@@ -1,17 +1,19 @@
-package 'apache2' do
-  case node[:platform]
-  when 'centos','redhat','fedora','amazon'
-    package_name 'httpd'
-  when 'debian','ubuntu'
-    package_name 'apache2'
-  end
-    action :install
+include_recipe 'ojava::ppa'
+
+execute "accept-oracle-license" do
+  command "echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections"
+  action :run
 end
 
-java_ark "jdk" do
-    url 'http://download.oracle.com/otn-pub/java/jdk/6u29-b11/jdk-6u29-linux-x64.bin'
-    checksum  'a8603fa62045ce2164b26f7c04859cd548ffe0e33bfc979d9fa73df42e3b3365'
-    app_home '/usr/local/java/default'
-    bin_cmds ["java", "javac"]
-    action :install
+package "oracle-java6-installer" do
+  action :install
+end
+
+package "oracle-java6-set-default" do
+  action :install
+end
+
+execute "update-java-alternatives-6" do
+  command "update-java-alternatives -s java-6-oracle"
+  action :run
 end
