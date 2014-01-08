@@ -22,7 +22,7 @@ ruby_block  "set-env-java-home" do
   end
 end
 
-ojava_ark "jdk" do
+java_ark "jdk" do
   url tarball_url
   checksum tarball_checksum
   app_home java_home
