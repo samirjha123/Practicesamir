@@ -1,5 +1,3 @@
-include_recipe 'ojava::ppa'
-
 execute "accept-oracle-license" do
   command "echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections"
   action :run
