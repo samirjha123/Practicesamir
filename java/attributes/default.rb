@@ -1,7 +1,8 @@
 default['java']['install_flavor'] = "openjdk"
 default['java']['jdk_version'] = '7'
 default['java']['arch'] = kernel['machine'] =~ /x86_64/ ? "x86_64" : "i586"
-default['java']['oracle']['accept_oracle_download_terms']= true
+default['java']['accept_oracle_download_terms']= false
+
 # default['java']['oracle']['username']= samirkumarjha007@gmail.com
 # default['java']['oracle']['password']= samirJHA123
 
@@ -16,7 +17,7 @@ when "arch"
 else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
-
+default['java']['oracle']['accept_oracle_download_terms']= false
 # jdk6 attributes
 # x86_64                                      
 default['java']['jdk']['6']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin'
