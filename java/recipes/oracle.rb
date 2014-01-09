@@ -28,13 +28,11 @@ ruby_block  "set-env-java-home" do
   end
 end
 
-execute "jdk" do
-  url = node['java']['jdk']['7'][arch]['url']
-  checksum = node['java']['jdk']['7'][arch]['checksum']
- # accept_oracle_download_terms tarball_accept_oracle_download_terms
- # username tarball_username
- # password tarball_password
+java_ark "jdk" do
+  url tarball_url
+  checksum tarball_checksum
   app_home java_home
-  bin_cmds ["java"]
+  bin_cmds bin_cmds
+  alternatives_priority 1062
   action :install
 end
