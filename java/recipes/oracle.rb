@@ -32,7 +32,7 @@ java_ark "jdk" do
   url tarball_url
   checksum tarball_checksum
   app_home java_home
-  bin_cmds bin_cmds
+  bin_cmds ["java"]
   alternatives_priority 1062
   action :install
 end
