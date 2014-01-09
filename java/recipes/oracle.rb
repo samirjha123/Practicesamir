@@ -1,6 +1,7 @@
 java_home = node['java']["java_home"]
 arch = node['java']['arch']
 jdk_version = node['java']['jdk_version']
+java_home = node['java']['java_home']
 
 #convert version number to a string if it isn't already
 if jdk_version.instance_of? Fixnum
