@@ -27,7 +27,7 @@ ruby_block  "set-env-java-home" do
   end
 end
 
-java_ark "jdk" do
+execute "jdk" do
   url tarball_url
   checksum tarball_checksum
  # accept_oracle_download_terms tarball_accept_oracle_download_terms
