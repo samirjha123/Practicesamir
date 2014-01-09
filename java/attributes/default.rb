@@ -1,7 +1,7 @@
 default['java']['install_flavor'] = "openjdk"
 default['java']['jdk_version'] = '7'
 default['java']['arch'] = kernel['machine'] =~ /x86_64/ ? "x86_64" : "i586"
-# default['java']['oracle']['accept_oracle_download_terms']= true
+default['java']['oracle']['accept_oracle_download_terms']= true
 # default['java']['oracle']['username']= samirkumarjha007@gmail.com
 # default['java']['oracle']['password']= samirJHA123
 
