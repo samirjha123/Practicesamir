@@ -1,9 +1,9 @@
 default['java']['install_flavor'] = "openjdk"
-default['java']['jdk_version'] = '6'
+default['java']['jdk_version'] = '7'
 default['java']['arch'] = kernel['machine'] =~ /x86_64/ ? "x86_64" : "i586"
-default['java']['oracle']['accept_oracle_download_terms']= true
-default['java']['oracle']['username']= samirkumarjha007@gmail.com
-default['java']['oracle']['password']= samirJHA123
+# default['java']['oracle']['accept_oracle_download_terms']= true
+# default['java']['oracle']['username']= samirkumarjha007@gmail.com
+# default['java']['oracle']['password']= samirJHA123
 
 
 case platform
@@ -29,8 +29,10 @@ default['java']['jdk']['6']['i586']['checksum'] = 'b551be83a690bc9fec0107d9aa4f8
 
 # jdk7 attributes
 # x86_64
-default['java']['jdk']['7']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/7u2-b13/jdk-7u2-linux-x64.tar.gz'
-default['java']['jdk']['7']['x86_64']['checksum'] = '411a204122c5e45876d6edae1a031b718c01e6175833740b406e8aafc37bc82d'
+default['java']['jdk']['7']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/7u40-b43/jdk-7u40-linux-x64.tar.gz',
+default['java']['jdk']['7']['x86_64']['checksum'] = '72f6e010592cad5e994276eee7db5f0b0d7c15c06949bd81f0e14811048bcf2c'
+#default['java']['jdk']['7']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/7u2-b13/jdk-7u2-linux-x64.tar.gz'
+#default['java']['jdk']['7']['x86_64']['checksum'] = '411a204122c5e45876d6edae1a031b718c01e6175833740b406e8aafc37bc82d'
 
 # i586
 default['java']['jdk']['7']['i586']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/7u2-b13/jdk-7u2-linux-i586.tar.gz'
