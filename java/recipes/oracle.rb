@@ -12,6 +12,9 @@ when "6"
   tarball_url = node['java']['jdk']['6'][arch]['url']
   tarball_checksum = node['java']['jdk']['6'][arch]['checksum']
   tarball_accept_oracle_download_terms = node['java']['oracle']['accept_oracle_download_terms']
+  tarball_username = node['java']['oracle']['username']
+  tarball_password = node['java']['oracle']['password']
+  
 when "7"
   tarball_url = node['java']['jdk']['7'][arch]['url']
   tarball_checksum = node['java']['jdk']['7'][arch]['checksum']
@@ -28,6 +31,8 @@ java_ark "jdk" do
   url tarball_url
   checksum tarball_checksum
   accept_oracle_download_terms tarball_accept_oracle_download_terms
+  username tarball_username
+  password tarball_password
   app_home java_home
   bin_cmds ["java"]
   action :install
