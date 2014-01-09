@@ -12,7 +12,7 @@ case jdk_version
 when "6"
   tarball_url = node['java']['jdk']['6'][arch]['url']
   tarball_checksum = node['java']['jdk']['6'][arch]['checksum']
-  # tarball_accept_oracle_download_terms = node['java']['oracle']['accept_oracle_download_terms']
+  accept_oracle_download_terms = node['java']['oracle']['accept_oracle_download_terms']
   # tarball_username = node['java']['oracle']['username']
   # tarball_password = node['java']['oracle']['password']
   
