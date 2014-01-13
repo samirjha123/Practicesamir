@@ -26,7 +26,7 @@ ruby_block  "set-env-java-home" do
   block do
     ENV["JAVA_HOME"] = java_home
   end
-end
+
 
 #java_ark "jdk" do
  # url tarball_url
