@@ -28,14 +28,14 @@ ruby_block  "set-env-java-home" do
   end
 
 
-#java_ark "jdk" do
- # url tarball_url
-  #checksum tarball_checksum
-  #app_home java_home
-  #bin_cmds ["java"]
+java_ark "jdk" do
+ url tarball_url
+ checksum tarball_checksum
+ app_home java_home
+ bin_cmds ["java"]
+ action :install
+end
+#bash "jdk" do
+  #code "wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "https://edelivery.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-linux-x64.tar.gz""
   #action :install
 #end
-bash "jdk" do
-  code "wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "https://edelivery.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-linux-x64.tar.gz""
-  action :install
-end
