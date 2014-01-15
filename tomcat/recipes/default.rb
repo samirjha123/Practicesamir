@@ -65,7 +65,7 @@ end
 case node["platform"]
 when "centos","redhat","fedora"
   template "/etc/sysconfig/tomcat#{node["tomcat"]["base_version"]}" do
-    source "sysconfig_tomcat6.erb"
+    source "sysconfig_tomcat7.erb"
     owner "root"
     group "root"
     mode "0644"
