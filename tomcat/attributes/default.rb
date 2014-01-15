@@ -1,4 +1,4 @@
-default["tomcat"]["base_version"] = 6
+default["tomcat"]["base_version"] = 7
 default["tomcat"]["port"] = 8080
 default["tomcat"]["proxy_port"] = nil
 default["tomcat"]["ssl_port"] = 8443
