@@ -73,7 +73,7 @@ when "centos","redhat","fedora"
   end
 else
   template "/etc/default/tomcat#{node["tomcat"]["base_version"]}" do
-    source "default_tomcat6.erb"
+    source "default_tomcat7.erb"
     owner "root"
     group "root"
     mode "0644"
