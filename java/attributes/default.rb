@@ -41,11 +41,9 @@ when 'ibm'
 when 'oracle_rpm'
   default['java']['oracle_rpm']['type'] = 'jdk'
   default['java']['java_home'] = "/usr/java/latest"
-end
-
 # if you change this to true, you can download directly from Oracle
 else
-default['java']['oracle']['accept_oracle_download_terms'] = true
+default['java']['oracle']['accept_oracle_download_terms'] = false
 
 # direct download paths for oracle, you have been warned!
 
