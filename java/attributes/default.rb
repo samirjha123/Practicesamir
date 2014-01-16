@@ -28,7 +28,7 @@ when "smartos"
   default['java']['java_home'] = "/opt/local/java/sun6"
   default['java']['openjdk_packages'] = ["sun-jdk#{node['java']['jdk_version']}", "sun-jre#{node['java']['jdk_version']}"]
 else
-  default['java']['java_home'] = "/usr/lib/jvm/default-java"
+  default['java']['java_home'] = "/usr/lib/jvm/java"
   default['java']['openjdk_packages'] = ["openjdk-#{node['java']['jdk_version']}-jdk"]
 end
 
