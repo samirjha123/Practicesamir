@@ -8,10 +8,10 @@ if jdk_version.instance_of? Fixnum
 end
 
 case jdk_version
-when "6"
-  tarball_url = node['java']['jdk']['6'][arch]['url']
-  tarball_checksum = node['java']['jdk']['6'][arch]['checksum']
-  bin_cmds = node['java']['jdk']['6']['bin_cmds']
+#when "6"
+  #tarball_url = node['java']['jdk']['6'][arch]['url']
+  #tarball_checksum = node['java']['jdk']['6'][arch]['checksum']
+  #bin_cmds = node['java']['jdk']['6']['bin_cmds']
 when "7"
   tarball_url = node['java']['jdk']['7'][arch]['url']
   tarball_checksum = node['java']['jdk']['7'][arch]['checksum']
