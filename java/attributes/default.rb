@@ -29,7 +29,7 @@ when "smartos"
   default['java']['openjdk_packages'] = ["sun-jdk#{node['java']['jdk_version']}", "sun-jre#{node['java']['jdk_version']}"]
 else
   default['java']['java_home'] = "/usr/lib/jvm/java"
-  default['java']['openjdk_packages'] = ["openjdk-#{node['java']['jdk_version']}-jdk"]
+  # default['java']['openjdk_packages'] = ["openjdk-#{node['java']['jdk_version']}-jdk"]
 end
 
 case node['java']['install_flavor']
