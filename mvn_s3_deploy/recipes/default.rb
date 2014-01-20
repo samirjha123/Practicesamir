@@ -11,7 +11,8 @@
 
 # Build the URL based on Maven2 Repository Layout
 props = node["mvn_s3_deploy"];
-file_name = props["artifactId"] + "-" + props["version"] + ".war"
+file_name = props["artifactId"] + ".war"
+#file_name = props["artifactId"] + "-" + props["version"] + ".war"
 full_url = "s3://#{props['bucket_name']}/#{file_name}"
 #full_url = "s3://#{props['bucket_name']}/release/#{props['groupId'].gsub('.','/')}/#{props['artifactId']}/#{props['version']}/#{file_name}"
 file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
