@@ -1,5 +1,5 @@
-#default[:mvn_s3_deploy][:access_key_id] = "YOUR_KEY_HERE"
-#default[:mvn_s3_deploy][:secret_access_key] = "YOUR_SECRET_KEY_HERE"
+default[:mvn_s3_deploy][:access_key_id] = "YOUR_KEY_HERE"
+default[:mvn_s3_deploy][:secret_access_key] = "YOUR_SECRET_KEY_HERE"
 default[:mvn_s3_deploy][:bucket_name] = "elasticbeanstalk-ap-northeast-1-724566739352"
 default[:mvn_s3_deploy][:artifactId] = "samir" # The maven artifactId for your war application
 default[:mvn_s3_deploy][:groupId] = "samir" # The maven groupId for your war application
