@@ -14,7 +14,7 @@ gem_package "aws-s3" do
 end
 require 'rubygems'
 require 'aws/s3'
-include AWS::S3
+# include AWS::S3
 
 # Build the URL based on Maven2 Repository Layout
 props = node["mvn_s3_deploy"];
