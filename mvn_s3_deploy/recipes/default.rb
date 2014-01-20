@@ -1,4 +1,4 @@
-include_recipe "tomcat"
+# include_recipe "tomcat"
 
 # Make sure gem is installed
 r = gem_package "aws-s3" do
