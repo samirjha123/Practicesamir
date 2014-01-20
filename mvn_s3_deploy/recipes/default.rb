@@ -31,6 +31,6 @@ mvn_s3_deploy file_path do
   source full_url
   backup false
   mode "0644"
-  notifies :restart, recipes(:service => "tomcat")
-  # notifies :restart, resources(:service => "tomcat")
+ # notifies :restart, recipes(:service => "tomcat")
+  notifies :restart, resources(:service => "tomcat")
 end
