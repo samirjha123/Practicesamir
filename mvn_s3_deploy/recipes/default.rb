@@ -26,8 +26,8 @@ file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_nam
 
 # Run the file download
 mvn_s3_deploy file_path do
-  #access_key_id node["mvn_s3_deploy"]["access_key_id"]
-  #secret_access_key node["mvn_s3_deploy"]["secret_access_key"]
+  access_key_id node["mvn_s3_deploy"]["access_key_id"]
+  secret_access_key node["mvn_s3_deploy"]["secret_access_key"]
   source full_url
   backup false
   mode "0644"
