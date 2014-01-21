@@ -32,12 +32,12 @@ class S3Deploy < Chef::Provider::RemoteFile
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
-      obj = AWS::S3::S3Object.find 'samir.war','elasticbeanstalk-ap-northeast-1-724566739352'
+      obj = AWS::S3::S3Object.find name , bucket
       #obj = AWS::S3::S3Object.find name, bucket
-      #Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
+      Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
       file = Tempfile.new("chef-s3-file")
       file.write obj.value
-      #Chef::Log.debug("File #{name} is #{file.size} bytes on disk")
+      Chef::Log.debug("File #{name} is #{file.size} bytes on disk")
       begin
         yield file
       ensure
