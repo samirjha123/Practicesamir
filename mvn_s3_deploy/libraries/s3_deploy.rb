@@ -1,5 +1,4 @@
 require 'chef/provider/remote_file'
-require 'aws/s3'
 
 class S3Deploy < Chef::Provider::RemoteFile
   def action_create
@@ -30,8 +29,6 @@ class S3Deploy < Chef::Provider::RemoteFile
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
       AWS::S3::Base.establish_connection!(
-          #:access_key_id => access_key_id,
-          #:secret_access_key => secret_access_key
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
@@ -49,52 +46,5 @@ class S3Deploy < Chef::Provider::RemoteFile
       Chef::Log.warn("Expected an S3 URL but found #{source}")
       nil
     end
-  end
-end
-
-class Chef
-  class Resource
-    class S3AwareRemoteFile < Chef::Resource::RemoteFile
-      def initialize(name, run_context=nil)
-        super
-        @resource_name = :s3_aware_remote_file
-      end
- 
-      def provider
-        Chef::Provider::S3AwareRemoteFile
-      end
- 
-      def access_key_id(args=nil)
-        set_or_return(
-          :access_key_id,
-          args,
-          :kind_of => String
-        )
-      end
-        
-      def secret_access_key(args=nil)
-        set_or_return(
-          :secret_access_key,
-          args,
-          :kind_of => String
-        )
-      end
- 
-      def headers(args={})
-        set_or_return(
-          :headers,
-          args,
-          :kind_of => Hash
-        )
-      end
- 
-      def expires(args=30)
-        set_or_return(
-          :expires,
-          args,
-          :kind_of => Integer
-        )
-      end
-    end 
   end
 end
