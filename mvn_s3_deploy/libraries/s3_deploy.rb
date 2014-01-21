@@ -1,4 +1,5 @@
 require 'chef/provider/remote_file'
+require 'aws/s3'
 
 class S3Deploy < Chef::Provider::RemoteFile
   def action_create
@@ -35,6 +36,7 @@ class S3Deploy < Chef::Provider::RemoteFile
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
+      Service.buckets
       obj = AWS::S3::S3Object.find name, bucket
       Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
       file = Tempfile.new("chef-s3-file")
