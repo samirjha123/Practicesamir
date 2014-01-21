@@ -28,7 +28,7 @@ class S3Deploy < Chef::Provider::RemoteFile
     begin
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
-      AWS::S3::Base.establish_connection!(
+      AWS::S3.new(
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
