@@ -29,14 +29,12 @@ class S3Deploy < Chef::Provider::RemoteFile
     begin
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
-      include AWS::S3
       AWS::S3::Base.establish_connection!(
           #:access_key_id => access_key_id,
           #:secret_access_key => secret_access_key
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
-      Service.buckets
       obj = AWS::S3::S3Object.find name, bucket
       Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
       file = Tempfile.new("chef-s3-file")
