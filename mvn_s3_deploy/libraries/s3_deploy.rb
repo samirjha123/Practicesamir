@@ -29,8 +29,8 @@ class S3Deploy < Chef::Provider::RemoteFile
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
       AWS::S3::Base.establish_connection!(
-          :access_key_id => @new_resource.access_key_id,
-          :secret_access_key => @new_resource.secret_access_key
+          :access_key_id = @new_resource.access_key_id,
+          :secret_access_key = @new_resource.secret_access_key
       )
       obj = AWS::S3::S3Object.find name, bucket
       Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
