@@ -53,3 +53,50 @@ class S3Deploy < Chef::Provider::RemoteFile
     end
   end
 end
+
+class Chef
+  class Resource
+    class S3AwareRemoteFile < Chef::Resource::RemoteFile
+      def initialize(name, run_context=nil)
+        super
+        @resource_name = :s3_aware_remote_file
+      end
+ 
+      def provider
+        Chef::Provider::S3AwareRemoteFile
+      end
+ 
+      def access_key_id(args=nil)
+        set_or_return(
+          :access_key_id,
+          args,
+          :kind_of => String
+        )
+      end
+        
+      def secret_access_key(args=nil)
+        set_or_return(
+          :secret_access_key,
+          args,
+          :kind_of => String
+        )
+      end
+ 
+      def headers(args={})
+        set_or_return(
+          :headers,
+          args,
+          :kind_of => Hash
+        )
+      end
+ 
+      def expires(args=30)
+        set_or_return(
+          :expires,
+          args,
+          :kind_of => Integer
+        )
+      end
+    end 
+  end
+end
