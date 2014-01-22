@@ -39,7 +39,7 @@ class S3Deploy < Chef::Provider::RemoteFile
       #0bj = elasticbeanstalk-ap-northeast-1-724566739352['samir.war']
       #obj = AWS::S3::Bucket.find(name,bucket)
       #obj = AWS::S3::S3Object.find name, bucket
-      Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket} value of obj #{obj}")
+      Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket} value of obj #{obj.size}")
       file = Tempfile.new("chef-s3-file")
       file.write obj.value
       Chef::Log.debug("File #{name} is #{file.size} bytes on disk")
