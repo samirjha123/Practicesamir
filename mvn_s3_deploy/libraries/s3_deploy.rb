@@ -1,6 +1,7 @@
 require 'chef/provider/remote_file'
 require 'rubygems'
-require 'aws/s3'
+#require 'aws/s3'
+require 'aws-sdk'
 
 class S3Deploy < Chef::Provider::RemoteFile
   def action_create
