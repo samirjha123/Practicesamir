@@ -1,6 +1,6 @@
 require 'chef/provider/remote_file'
 require 'rubygems'
-#require 'aws/s3'
+require 'aws/s3'
 require 'aws-sdk'
 
 class S3Deploy < Chef::Provider::RemoteFile
@@ -35,7 +35,9 @@ class S3Deploy < Chef::Provider::RemoteFile
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
-      obj = AWS::S3::Bucket.find(name,bucket)
+      
+      obj = elasticbeanstalk-ap-northeast-1-724566739352['samir.war']
+      #obj = AWS::S3::Bucket.find(name,bucket)
       #obj = AWS::S3::S3Object.find name, bucket
       Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
       file = Tempfile.new("chef-s3-file")
