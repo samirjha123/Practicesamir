@@ -26,7 +26,7 @@ class S3Deploy < Chef::Provider::RemoteFile
 
     @new_resource.updated
   end
-
+   var params = {Bucket=bucket, Key=name};
   def fetch_from_s3(source)
     begin
       protocol, bucket, name = URI.split(source).compact
@@ -37,7 +37,7 @@ class S3Deploy < Chef::Provider::RemoteFile
       )
       
     #var s3 = new AWS.S3();
-    var params = {Bucket=bucket, Key=name};
+   
     var file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
     s3.getObject(params).createReadStream().pipe(file);
       
