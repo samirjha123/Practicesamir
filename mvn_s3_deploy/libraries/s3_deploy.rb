@@ -31,11 +31,17 @@ class S3Deploy < Chef::Provider::RemoteFile
     begin
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
-      AWS::S3.new(
+      var s3 = AWS::S3.new(
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
-      obj = bucket[name]
+      
+    #var s3 = new AWS.S3();
+    var params = {Bucket: bucket, Key: name};
+    var file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
+    s3.getObject(params).createReadStream().pipe(file);
+      
+      #obj = bucket[name]
       #0bj = elasticbeanstalk-ap-northeast-1-724566739352['samir.war']
       #obj = AWS::S3::Bucket.find(name,bucket)
       #obj = AWS::S3::S3Object.find name, bucket
