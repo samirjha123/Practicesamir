@@ -37,17 +37,17 @@ class S3Deploy < Chef::Provider::RemoteFile
       )
       
     #var s3 = new AWS.S3();
-     file = require('samir.war').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
+     file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
     #file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
-    s3.getObject(params).createReadStream().pipe(file);
+     s3.getObject(params).createReadStream().pipe(file);
       
       #obj = bucket[name]
       #0bj = elasticbeanstalk-ap-northeast-1-724566739352['samir.war']
       #obj = AWS::S3::Bucket.find(name,bucket)
       #obj = AWS::S3::S3Object.find name, bucket
       Chef::Log.debug("Downloading #{name} from S3 bucket #{bucket}")
-      file = Tempfile.new("chef-s3-file")
-      file.write obj.value
+      #file = Tempfile.new("chef-s3-file")
+      #file.write obj.value
       Chef::Log.debug("File #{name} is #{file.size} bytes on disk")
       begin
         yield file
