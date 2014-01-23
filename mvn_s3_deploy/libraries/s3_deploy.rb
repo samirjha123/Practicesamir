@@ -26,7 +26,7 @@ class S3Deploy < Chef::Provider::RemoteFile
 
     @new_resource.updated
   end
-   var params = {Bucket=bucket, Key=name};
+   var params = {Bucket='elasticbeanstalk-ap-northeast-1-724566739352', Key='samir.war'};
   def fetch_from_s3(source)
     begin
       protocol, bucket, name = URI.split(source).compact
