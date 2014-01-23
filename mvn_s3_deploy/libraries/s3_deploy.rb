@@ -26,19 +26,19 @@ class S3Deploy < Chef::Provider::RemoteFile
 
     @new_resource.updated
   end
-   var params = {Bucket='elasticbeanstalk-ap-northeast-1-724566739352', Key='samir.war'};
+   params = {Bucket='elasticbeanstalk-ap-northeast-1-724566739352', Key='samir.war'};
   def fetch_from_s3(source)
     begin
       protocol, bucket, name = URI.split(source).compact
       name = name[1..-1]
-      var s3 = AWS::S3.new(
+      s3 = AWS::S3.new(
           :access_key_id => @new_resource.access_key_id,
           :secret_access_key => @new_resource.secret_access_key
       )
       
     #var s3 = new AWS.S3();
    
-    var file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
+    file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
     s3.getObject(params).createReadStream().pipe(file);
       
       #obj = bucket[name]
