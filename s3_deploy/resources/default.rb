@@ -1,7 +1,7 @@
-def initialize(*args)
-  super
-  @action = :create
-end
+#def initialize(*args)
+ # super
+  # @action = :create
+# end
 
 attribute :path, :kind_of => String, :name_attribute => true
 attribute :access_key_id, :kind_of => String, :required => true
