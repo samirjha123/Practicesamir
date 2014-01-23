@@ -21,7 +21,6 @@ props = node["mvn_s3_deploy"];
 file_name = props["artifactId"] + ".war"
 #file_name = props["artifactId"] + "-" + props["version"] + ".war"
 full_url = "https://s3-ap-northeast-1.amazonaws.com/#{props['bucket_name']}/#{file_name}"
-https://s3-ap-northeast-1.amazonaws.com
 ##full_url = "s3://#{props['bucket_name']}/#{file_name}"
 #full_url = "s3://#{props['bucket_name']}/release/#{props['groupId'].gsub('.','/')}/#{props['artifactId']}/#{props['version']}/#{file_name}"
 file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
