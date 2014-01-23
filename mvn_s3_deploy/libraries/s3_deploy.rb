@@ -37,8 +37,8 @@ class S3Deploy < Chef::Provider::RemoteFile
       )
       
     #var s3 = new AWS.S3();
-   
-    file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
+     file = require('samir.war').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
+    #file = require('fs').createWriteStream('/var/lib/tomcat7/webapps/samir.war');
     s3.getObject(params).createReadStream().pipe(file);
       
       #obj = bucket[name]
