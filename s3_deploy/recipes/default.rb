@@ -36,7 +36,7 @@ full_url = "s3://#{props['bucket_name']}/#{file_name}"
 file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
 
 # Run the file download
-mvn_s3_deploy file_path do
+s3_deploy file_path do
   access_key_id node["s3_deploy"]["access_key_id"]
   secret_access_key node["s3_deploy"]["secret_access_key"]
   source full_url
