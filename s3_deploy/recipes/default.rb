@@ -1,4 +1,3 @@
-
 # Make sure gem is installed
 r = gem_package "aws-s3" do
   action :nothing
@@ -10,7 +9,8 @@ require 'aws/s3'
 
 # Build the URL based on Maven2 Repository Layout
 props = node["s3_deploy"];
-file_name = props["artifactId"] + "-" + props["version"] + ".war"
+file_name = props["artifactId"] + ".war"
+#file_name = props["artifactId"] + "-" + props["version"] + ".war"
 full_url = "s3://#{props['bucket_name']}/#{file_name}"
 #full_url = "s3://#{props['bucket_name']}/release/#{props['groupId'].gsub('.','/')}/#{props['artifactId']}/#{props['version']}/#{file_name}"
 file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
