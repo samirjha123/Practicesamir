@@ -1,6 +1,7 @@
 def initialize(*args)
+   super
   @action = :create
-  super
+ 
   end
 
 attribute :path, :kind_of => String, :name_attribute => true
