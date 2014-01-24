@@ -1,6 +1,5 @@
-
 def initialize(new_resource, run_context)
-    super(new_resource, run_context)
+    #super(new_resource, run_context)
     @s3 = S3Deploy.new(new_resource, run_context)
 end
 
