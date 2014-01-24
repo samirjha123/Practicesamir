@@ -13,3 +13,9 @@ attribute :mode, :kind_of => String
 attribute :checksum, :regex => /^[a-zA-Z0-9]{64}$/
 attribute :backup, :kind_of => [Integer, FalseClass]
 attribute :content, :kind_of => String
+
+def initialize(*args)
+  super
+  @action = :create
+  @supports = {:report => true, :exception => true}
+end
