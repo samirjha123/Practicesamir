@@ -41,6 +41,7 @@ s3_deploy file_path do
   secret_access_key node["s3_deploy"]["secret_access_key"]
   source full_url
   backup false
+  action :create
   mode "0644"
   notifies :restart, resources(:service => "tomcat")
 end
