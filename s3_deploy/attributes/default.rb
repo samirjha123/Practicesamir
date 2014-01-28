@@ -1,7 +1,7 @@
 default['s3_deploy']['access_key_id'] = "YOUR_KEY_HERE"
 default['s3_deploy']['secret_access_key'] = "YOUR_SECRET_KEY_HERE"
 default['s3_deploy']['installer']['file']="#{node['s3_deploy']['artifactId']}.war"
-default['s3_deploy']['installer']['s3-bucket-name']="opsworks.com"
+default['s3_deploy']['installer']['s3-bucket-name']="samir-nrift-repo"
 
 #default['s3_deploy']['bucket_name'] = "elasticbeanstalk-ap-northeast-1-724566739352"
 default['s3_deploy']['artifactId'] = "samir" # The maven artifactId for your war application
