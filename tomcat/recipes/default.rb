@@ -63,7 +63,7 @@ unless node['tomcat']["truststore_file"].nil?
 end
 
 case node["platform"]
-when "centos","redhat","fedora"
+when "centos","redhat","fedora","amazon"
   template "/etc/sysconfig/tomcat#{node["tomcat"]["base_version"]}" do
     source "sysconfig_tomcat7.erb"
     owner "root"
