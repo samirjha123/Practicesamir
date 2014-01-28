@@ -3,7 +3,7 @@
 # include_recipe "java::oracle"
 
 tomcat_pkgs = value_for_platform(
-  ["debian","ubuntu"] => {
+  ["debian","ubuntu","amazon"] 
     "default" => ["tomcat#{node["tomcat"]["base_version"]}","tomcat#{node["tomcat"]["base_version"]}-admin"]
   },
   ["centos","redhat","fedora"] => {
@@ -45,7 +45,7 @@ service "tomcat" do
   case node["platform"]
   when "centos","redhat","fedora"
     supports :restart => true, :status => true
-  when "debian","ubuntu"
+  when "debian","ubuntu","amazon"
     supports :restart => true, :reload => false, :status => true
   end
   action [:enable, :start]
