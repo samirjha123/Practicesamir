@@ -31,16 +31,16 @@ require 'aws/s3'
 props = node["s3_deploy"];
 file_name = props["artifactId"] + ".war"
 #file_name = props["artifactId"] + "-" + props["version"] + ".war"
-full_url = "s3://#{props['bucket_name']}/#{file_name}"
+#full_url = "s3://#{props['bucket_name']}/#{file_name}"
 #full_url = "s3://#{props['bucket_name']}/release/#{props['groupId'].gsub('.','/')}/#{props['artifactId']}/#{props['version']}/#{file_name}"
 file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
 
 # Run the file download
-s3_deploy file_path do
+s3_file file_path do
   access_key_id node["s3_deploy"]["access_key_id"]
   secret_access_key node["s3_deploy"]["secret_access_key"]
-  source full_url
-  backup false
+  #source full_url
+  #backup false
   action :create
   mode "0644"
   notifies :restart, resources(:service => "tomcat")
