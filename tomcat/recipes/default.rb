@@ -3,7 +3,7 @@
 # include_recipe "java::oracle"
 
 tomcat_pkgs = value_for_platform(
-  ["debian","ubuntu","amazon"] => {
+  ["debian","ubuntu"] => {
     "default" => ["tomcat#{node["tomcat"]["base_version"]}","tomcat#{node["tomcat"]["base_version"]}-admin"]
   },
   ["centos","redhat","fedora"] => {
