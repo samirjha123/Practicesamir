@@ -1,4 +1,6 @@
-# Make sure gem is installed
+# Make sure gem is installed\
+
+include_recipe "s3"
 case node.platform
 when "debian", "ubuntu"
   #include_recipe "apt"
