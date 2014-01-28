@@ -7,12 +7,10 @@ version          "1.0.0"
 depends          "tomcat"
 
 %w{ s3_file }.each do |cookbook|
-
   depends cookbook
 end
 
-%w{ centos redhat fedora amazon}.each do |os|
-
+%w{ centos redhat fedora amazon }.each do |os|
   supports os
 end
 
