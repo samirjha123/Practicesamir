@@ -1,5 +1,5 @@
-default['s3_deploy']['access_key_id'] = "YOUR_KEY_HERE"
-default['s3_deploy']['secret_access_key'] = "YOUR_SECRET_KEY_HERE"
+default['s3_deploy']['aws_access_key_id'] = "YOUR_KEY_HERE"
+default['s3_deploy']['aws_secret_access_key'] = "YOUR_SECRET_KEY_HERE"
 #default['s3_deploy']['installer']['file']="#{node['s3_deploy']['artifactId']}.war"
 default['s3_deploy']['installer']['s3-bucket-name']="samir-nrift-repo"
 
