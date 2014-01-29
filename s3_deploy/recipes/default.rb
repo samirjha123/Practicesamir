@@ -35,11 +35,12 @@ file_name = props["artifactId"] + ".war"
 #file_name = props["artifactId"] + "-" + props["version"] + ".war"
 #full_url = "s3://#{props['bucket_name']}/#{file_name}"
 #full_url = "s3://#{props['bucket_name']}/release/#{props['groupId'].gsub('.','/')}/#{props['artifactId']}/#{props['version']}/#{file_name}"
-file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"] || file_name)
+file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"])
 
 # Run the file download
 s3_file file_path do
-  remote_path node['s3_deploy']['installer']['file']
+   remote_path "/samir.war"
+  #remote_path "/" + node['s3_deploy']['installer']['file']
   #source "ap-northeast-1://samir-nrift-repo/samir.war"
   bucket node['s3_deploy']['installer']['s3-bucket-name']
   access_key_id node['s3_deploy']['access_key_id']
@@ -51,5 +52,5 @@ s3_file file_path do
   mode "0644"
   action :create
 
-  notifies :restart, resources(:service => "tomcat")
+  #notifies :restart, resources(:service => "tomcat")
 end
