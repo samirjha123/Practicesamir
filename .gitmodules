@@ -1,0 +1,3 @@
+[submodule "s3_file"]
+        path = s3_file
+        url = https://github.com/adamsb6/s3_file.git
