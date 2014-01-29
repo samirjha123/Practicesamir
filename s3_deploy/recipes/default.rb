@@ -40,7 +40,7 @@
 # Run the file download
 s3_file "/tmp/#{node['s3_deploy']['war_name']}" do
   # remote_path "/samir.war"
-  remote_path "/war"
+  remote_path "/war/samir.war"
   #source "ap-northeast-1://samir-nrift-repo/samir.war"
   bucket node['s3_deploy']['installer']['s3-bucket-name']
   aws_access_key_id node['s3_deploy']['access_key_id']
