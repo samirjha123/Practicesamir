@@ -97,52 +97,6 @@ template "/etc/tomcat#{node['tomcat']['base_version']}/logging.properties" do
   notifies :restart, "service[tomcat]"
 end
 
-unless node['tomcat']["ssl_cert_file"].nil?
-  cookbook_file "#{node['tomcat']['config_dir']}/#{node['tomcat']['ssl_cert_file']}" do
-    mode "0644"
-  end
-  cookbook_file "#{node['tomcat']['config_dir']}/#{node['tomcat']['ssl_key_file']}" do
-    mode "0644"
-  end
-  cacerts = ""
-  node['tomcat']['ssl_chain_files'].each do |cert|
-    cookbook_file "#{node['tomcat']['config_dir']}/#{cert}" do
-      mode "0644"
-    end
-    cacerts = cacerts + "#{cert} "
-  end
-  script "create_tomcat_keystore" do
-    interpreter "bash"
-    cwd node['tomcat']['config_dir']
-    code <<-EOH
-      cat #{cacerts} > cacerts.pem
-      openssl pkcs12 -export \
-       -inkey #{node['tomcat']['ssl_key_file']} \
-       -in #{node['tomcat']['ssl_cert_file']} \
-       -chain \
-       -CAfile cacerts.pem \
-       -password pass:#{node['tomcat']['keystore_password']} \
-       -out #{node['tomcat']['keystore_file']}
-    EOH
-    notifies :restart, "service[tomcat]"
-    creates "#{node['tomcat']['config_dir']}/#{node['tomcat']['keystore_file']}"
-  end
-else
-  execute "Create Tomcat SSL certificate" do
-    group node['tomcat']['group']
-    command "#{node['tomcat']['keytool']} -genkeypair -keystore \"#{node['tomcat']['config_dir']}/#{node['tomcat']['keystore_file']}\" -storepass \"#{node['tomcat']['keystore_password']}\" -keypass \"#{node['tomcat']['keystore_password']}\" -dname \"#{node['tomcat']['certificate_dn']}\""
-    umask 0007
-    creates "#{node['tomcat']['config_dir']}/#{node['tomcat']['keystore_file']}"
-    action :run
-    notifies :restart, "service[tomcat]"
-  end
-end
-
-unless node['tomcat']["truststore_file"].nil?
-  cookbook_file "#{node['tomcat']['config_dir']}/#{node['tomcat']['truststore_file']}" do
-    mode "0644"
-  end
-end
 
 execute "service iptables stop" do
   user "root"
