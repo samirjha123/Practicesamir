@@ -44,8 +44,8 @@ s3_file "/tmp/war/samir.war" do
   remote_path "/war/samir.war"
   #source "ap-northeast-1://samir-nrift-repo/samir.war"
   bucket node['s3_deploy']['installer']['s3-bucket-name']
-  aws_access_key_id node['s3_deploy']['access_key_id']
-  aws_secret_access_key node['s3_deploy']['secret_access_key']
+  aws_access_key_id node['s3_deploy']['aws_access_key_id']
+  aws_secret_access_key node['s3_deploy']['aws_secret_access_key']
   #source full_url
   #backup false
   owner "root"
