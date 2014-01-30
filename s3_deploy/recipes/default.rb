@@ -38,7 +38,7 @@
 #file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"])
 
 # Run the file download
-s3_file "/tmp/samir.war" do
+s3_file "/var/lib/tomcat7/webapps/samir.war" do
 #s3_file "/tmp/#{node['s3_deploy']['war_name']}" do
   # remote_path "/samir.war"
   remote_path "/war/samir.war"
@@ -53,5 +53,5 @@ s3_file "/tmp/samir.war" do
   mode "0644"
   action :create
 
-  #notifies :restart, resources(:service => "tomcat")
+  notifies :restart, resources(:service => "tomcat")
 end
