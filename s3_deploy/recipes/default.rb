@@ -38,7 +38,7 @@
 #file_path = node["tomcat"]["webapp_dir"] + "/"  + (props["war_name"])
 
 # Run the file download
-s3_file "/tmp/war/samir.war" do
+s3_file "/tmp/samir.war" do
 #s3_file "/tmp/#{node['s3_deploy']['war_name']}" do
   # remote_path "/samir.war"
   remote_path "/war/samir.war"
